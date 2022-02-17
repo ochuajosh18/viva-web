@@ -1,0 +1,13 @@
+version: '3'
+services:
+  dev-viva-web:
+    container_name: dev-viva-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: opsenterprise/dev-viva-web
+    volumes:
+       - ./nginx/default.conf:/etc/nginx/conf.d/dev-viva-web/default.conf
+    restart: always
+    ports:
+      - '127.0.0.1:3038:80'
